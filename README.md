@@ -1,24 +1,16 @@
-# README
+# Zippr
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This is a small service that allows fetching individual files from
+large ZIP archives, using
+[partial-zip](https://github.com/planetbeing/partial-zip) utility.
 
-Things you may want to cover:
+## Limitations
 
-* Ruby version
+partial-zip utility works only with servers supporting `Content-Range`
+header.
 
-* System dependencies
+## Usage
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+You can launch the service using: `docker-compose up --build`, the `/`
+endpoint requires two parameters: `url` and `filename`. Example usage:
+`http://localhost:3000/?url=https://lab.triage.com/rails/active_storage/blobs/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBBNExKTEE9PSIsImV4cCI6bnVsbCwicHVyIjoiYmxvYl9pZCJ9fQ\=\=--7fe6358d1b26ccebfe5de75b5d17926a110206b3/archive.zip&filename=manifest.json`.

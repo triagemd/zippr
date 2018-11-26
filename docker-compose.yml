@@ -1,0 +1,9 @@
+version: '2'
+services:
+  zippr:
+    build: .
+    ports:
+      - "3000:3000"
+    environment:
+      RAILS_ENV: production
+      SECRET_KEY_BASE: fake
