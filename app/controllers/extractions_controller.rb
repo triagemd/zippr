@@ -3,7 +3,7 @@ class ExtractionsController < ApplicationController
     extraction = Extraction.new(params)
 
     if extraction.valid?
-      ExtractFile.call(extraction.url, extraction.filename) { |output_file| send_file(output_file.path) }
+      ExtractFile.call(extraction.url, extraction.filename) { |output_file| send_file(output_file.path, filename: extraction.filename) }
     else
       render json: extraction.errors, status: :unprocessable_entity
     end
